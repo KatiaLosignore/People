@@ -1,0 +1,58 @@
+@model PersonDetailViewModel
+
+<div class="container mt-3">
+
+    <div class="card">
+        <h2 class="card-header text-center text-primary">Dettaglio Persona</h2>
+        <div class="card-body">
+            
+            <div>
+                <h2 class="text-primary fw-bold">Id:</h2>
+                <h3>@Model.Id</h3>
+            </div>
+            <div>
+                <h2 class="text-primary fw-bold">Nome:</h2>
+                <h3>@Model.Name</h3>
+            </div>
+            <div>
+                <h2 class="text-primary fw-bold">Cognome:</h2>
+                <h3>@Model.Surname</h3>
+            </div>
+            <div>
+                <h2 class="text-primary fw-bold">Età:</h2>
+                <h3>@Model.Age</h3>
+            </div>
+            <div>
+                @if(!string.IsNullOrEmpty(@Model.Bio)){
+                    <h2 class="text-primary fw-bold">Biografia:</h2>
+                    <h3>@Model.Bio</h3>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+        <h2 class="card-header text-center text-primary">Proprietà: n. @Model.Cars.Count Autovetture</h2>
+        <div class="card-body">
+            @foreach (var auto in Model.Cars)
+            {
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-9">
+                        <div class="d-flex flex-column">
+                            <h5 class="fw-bold"><strong class="text-primary">Targa:</strong> @auto.Targa</h5>
+                            <h5><strong class="text-primary">Marca:</strong> @auto.Marca</h5>
+                            <h5><strong class="text-primary">Modello:</strong> @auto.Modello</h5>
+                            <h5><strong class="text-primary">Colore:</strong> @auto.Colore</h5>
+                        </div>
+                    </div>
+                </div>
+            }
+            
+        </div>
+    </div>
+</div>
+
+
+

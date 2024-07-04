@@ -1,0 +1,42 @@
+@model List<PersonViewModel>
+
+<div class="container mt-3">
+
+    <h1 class="text-primary fw-bold mb-4">
+        @ViewData["Title"] 
+    </h1>
+
+        <table class="table rounded-5">
+            <thead>
+                <tr class="mt-5">
+                    <th scope="col" class="text-primary">Id</th>
+                    <th scope="col" class="text-primary">Nome</th>
+                    <th scope="col" class="text-primary">Cognome</th>
+                    <th scope="col" class="text-primary">Età</th>
+                    <th scope="col" class="text-primary text-center">Azioni</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (PersonViewModel person in Model)
+                {
+                    <tr>
+
+                        <th scope="row">@person.Id</th>
+                        <td>@person.Name</td>
+                        <td>@person.Surname</td>
+                        <td>@person.Age</td>
+                        <td class="">
+                            <a class="btn btn-outline-primary" asp-action="Detail" asp-controller="Persons" asp-route-id="@person.Id">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            </a>
+                        
+                        </td>
+                    </tr>
+
+                }
+    
+            </tbody>
+        </table>
+</div>
+
+    
