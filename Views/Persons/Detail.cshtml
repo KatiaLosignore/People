@@ -35,7 +35,7 @@
     <div class="card mt-3">
         <h2 class="card-header text-center text-primary">Proprietà: n. @Model.Cars.Count Autovetture</h2>
         <div class="card-body">
-            @foreach (var auto in Model.Cars)
+            @foreach (AutoViewModel auto in Model.Cars)
             {
                 <hr>
                 <div class="row mb-3">
@@ -52,6 +52,12 @@
             
         </div>
     </div>
+
+    <p class="back-button mt-5">
+        <a class="btn btn-primary" href="@Url.Action("Index", "Persons")" role="button">
+            <b>Torna Indietro</b>
+        </a>
+    </p>
 </div>
 
 
