@@ -53,5 +53,41 @@ namespace People.Models.Services.Infrastructure
             }
 
         }
+
+        public void QueryDelete(FormattableString formattableQuery)
+        {
+            var queryArguments = formattableQuery.GetArguments(); //recupero gli argomenti della query  -> torna un array di SqliteParameter
+            var sqliteParameters = new List<SqliteParameter>();
+         
+            for (var i = 0; i < queryArguments.Length; i++)
+                {
+                    //Il costruttore di SqliteParameter vuole un valore numerico come string e il valore da iniettare nella query
+                    var parameter = new SqliteParameter(i.ToString(), queryArguments[i]);
+                    sqliteParameters.Add(parameter);
+                    queryArguments[i] = "@" + i;
+
+                }
+
+                string query = formattableQuery.ToString();
+
+               
+                using (var conn = new SqliteConnection("Data Source=Data/MyPersons.db"))
+                {
+                    conn.Open();
+
+                    using (var cmd = new SqliteCommand(query, conn))
+                    {
+                         //tramite il metodo AddRange aggiungo tutti i parametri recuperati dalla query
+                         cmd.Parameters.AddRange(sqliteParameters);
+
+                         cmd.ExecuteNonQuery();
+                    }
+
+                }
+
+
+            }
+
     }
 }
+

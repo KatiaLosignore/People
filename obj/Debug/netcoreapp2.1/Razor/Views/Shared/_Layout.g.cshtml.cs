@@ -38,8 +38,13 @@ using People.Models.Services.Application;
 
 #line default
 #line hidden
+#line 6 "C:\Users\katia\umana\People\Views\_ViewImports.cshtml"
+using People.Models.InputModels;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"96e49d5680360935b39bbe7d3f9bb9a35e7609a6", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"88d23ad6c13a9ea638d25f60aa28be3ce029a848", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7f35259e7981e426c75333895868068200023f6b", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -77,7 +82,7 @@ using People.Models.Services.Application;
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n");
             EndContext();
             BeginContext(37, 641, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6853418b9c044ab94c4fcb09f949014", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "27a5a148c02c457b9dff0b210664208a", async() => {
                 BeginContext(43, 545, true);
                 WriteLiteral(@"
     <meta charset=""UTF-8"">
@@ -89,7 +94,7 @@ using People.Models.Services.Application;
     ");
                 EndContext();
                 BeginContext(588, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "56cd93df35db4de59512c3fa02ec2223", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ebc5fd33f44b48c3b0f7db9f6f152d6d", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -133,7 +138,7 @@ using People.Models.Services.Application;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(682, 1814, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "abdcaab61346469c91b8d89bd740acca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff64941df2374af995f182c984740eaf", async() => {
                 BeginContext(688, 531, true);
                 WriteLiteral(@"
 
@@ -151,7 +156,7 @@ using People.Models.Services.Application;
                         ");
                 EndContext();
                 BeginContext(1219, 76, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9d1ae38519b1466eb50d08958dbe3de0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a94c4aad389426997aa764d8aa2b964", async() => {
                     BeginContext(1280, 11, true);
                     WriteLiteral("<b>Home</b>");
                     EndContext();
@@ -176,7 +181,7 @@ using People.Models.Services.Application;
                 WriteLiteral("\r\n                    </li>\r\n                    <li class=\"nav-item active\">\r\n                        ");
                 EndContext();
                 BeginContext(1398, 82, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca41a780e98b43f68c74fec8bb248687", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0c4249591364791af8ab05baf38b138", async() => {
                     BeginContext(1462, 14, true);
                     WriteLiteral("<b>Persone</b>");
                     EndContext();

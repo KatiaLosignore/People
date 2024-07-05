@@ -8,6 +8,8 @@ namespace People.Models.Services.Infrastructure
 {
     public interface IDatabaseAccessor
     {
-         DataSet Query(FormattableString query);
+         DataSet Query(FormattableString formattableQuery);
+
+         void QueryDelete(FormattableString formattableQuery);
     }
 }

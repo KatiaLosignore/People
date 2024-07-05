@@ -18,13 +18,21 @@ namespace People.Models.ViewModels
 
            var personDetailViewModel = new PersonDetailViewModel 
            {
-                Name = Convert.ToString(personRow["Name"]),
-                Surname = Convert.ToString(personRow["Surname"]),
-                Age = Convert.ToInt32(personRow["Age"]),
-                Bio = Convert.ToString(personRow["Bio"]),
-                Id = Convert.ToInt32(personRow["Id"]),
+                // Name = Convert.ToString(personRow["Name"]),
+                // Surname = Convert.ToString(personRow["Surname"]),
+                // Age = Convert.ToInt32(personRow["Age"]),
+                // Bio = Convert.ToString(personRow["Bio"]),
+                // Id = Convert.ToInt32(personRow["Id"]),
+
+                Name = personRow.IsNull("Name") ? string.Empty : Convert.ToString(personRow["Name"]),
+                Surname = personRow.IsNull("Surname") ? string.Empty : Convert.ToString(personRow["Surname"]),
+                Age = personRow.IsNull("Age") ? 0 : Convert.ToInt32(personRow["Age"]),
+                Bio = personRow.IsNull("Bio") ? string.Empty : Convert.ToString(personRow["Bio"]),
+                Id = personRow.IsNull("Id") ? 0 : Convert.ToInt32(personRow["Id"]),
+
                 Cars = new List<AutoViewModel>()
             };
+            
             return personDetailViewModel;
         }
 

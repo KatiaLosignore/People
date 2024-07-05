@@ -1,0 +1,32 @@
+@model PersonCreateInputModel;
+
+<div class="container mt-3">
+
+    <h1 class="text-primary mb-5">@ViewData["Title"]</h1>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <input type="text" asp-for="Name" class="form-control form-control-lg"
+                    placeholder="Inserisci il Nome">
+            </div>
+            <div class="col-md-8 mb-3">
+                <input type="text" asp-for="Surname" class="form-control form-control-lg"
+                    placeholder="Inserisci il Cognome">
+            </div>
+             <div class="col-md-8 mb-3">
+                <input type="text" asp-for="Age" class="form-control form-control-lg"
+                    placeholder="Inserisci l'Età ">
+            </div>
+            <div class="col-md-8 mb-5">
+                <input type="text" asp-for="Bio" class="form-control form-control-lg"
+                    placeholder="Inserisci la Biografia ">
+            </div>
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-rocket"></i> Crea
+                    nuova Persona</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

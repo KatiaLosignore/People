@@ -20,10 +20,15 @@ namespace People.Models.ViewModels
         public static PersonViewModel FromDataRow(DataRow personRow)
         {
            var personViewModel = new PersonViewModel {
-                Name = Convert.ToString(personRow["Name"]),
-                Surname = Convert.ToString(personRow["Surname"]),
-                Age = Convert.ToInt32(personRow["Age"]),
-                Id = Convert.ToInt32(personRow["Id"])
+                // Name = Convert.ToString(personRow["Name"]),
+                // Surname = Convert.ToString(personRow["Surname"]),
+                // Age = Convert.ToInt32(personRow["Age"]),
+                // Id = Convert.ToInt32(personRow["Id"])
+
+                Name = personRow.IsNull("Name") ? string.Empty : Convert.ToString(personRow["Name"]),
+                Surname = personRow.IsNull("Surname") ? string.Empty : Convert.ToString(personRow["Surname"]),
+                Age = personRow.IsNull("Age") ? 0 : Convert.ToInt32(personRow["Age"]),
+                Id = personRow.IsNull("Id") ? 0 : Convert.ToInt32(personRow["Id"])
             };
             return personViewModel;
         }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Data;
 using People.Models.Services.Infrastructure;
 using People.Models.ViewModels;
+using People.Models.InputModels;
 
 
 namespace People.Models.Services.Application
@@ -22,6 +23,7 @@ namespace People.Models.Services.Application
         public List<PersonViewModel> GetPeople()
         {
             //query che verrà eseguita nel database
+            //inserendo FormattableString inserisco sempre il $ anche senza parametri da passare
             FormattableString query = $"SELECT Id, Name, Surname, Age FROM Persons";
             //un oggetto di tipo DataSet è un insieme di oggetti di tipo DataTable
             DataSet dataSet = db.Query(query); 
@@ -45,6 +47,7 @@ namespace People.Models.Services.Application
             // throw new NotImplementedException();
 
             //In un'unica variabile string io inserisco tutte le query che devono essere eseguite
+            //Uso FormattableString con $@ per concatenare più query
             FormattableString query = $@"SELECT Id, Name, Surname, Age, Bio FROM Persons WHERE Id ={id} 
             ; SELECT Targa, Marca, Modello, Colore FROM Auto WHERE PersonId ={id}";
 
@@ -59,12 +62,33 @@ namespace People.Models.Services.Application
             
             
             var autoDataTable = dataSet.Tables[1];//accedo dal dataSet alla seconda tabella cioè a quella che è stata restituita dall'esecuzione della seconda query
+            //eseguo un ciclo perchè nella 2 tabella avro' più elementi collegati alla Tabella Auto creata
             foreach(DataRow autoRow in autoDataTable.Rows){
                 var auto = AutoViewModel.FromDataRow(autoRow);
                 personDetailViewModel.Cars.Add(auto);
             }
 
             return personDetailViewModel;
+        }
+
+        public PersonDetailViewModel CreatePerson(PersonCreateInputModel input)
+        {
+            string name = input.Name;
+            string surname = input.Surname;
+            int age = input.Age;
+            string bio = input.Bio;
+        
+            // string author = "Mario Rossi";
+            var dataSet = db.Query($@"INSERT INTO Persons (Name, Surname, Age, Bio) VALUES ({name}, {surname}, {age}, {bio});
+            SELECT last_insert_rowid();");
+            int personId = Convert.ToInt32(dataSet.Tables[0].Rows[0][0]);
+            PersonDetailViewModel person = GetPerson(personId);
+            return person;
+        }
+
+        public void DeletePerson(int id)
+        {
+            db.QueryDelete($@"DELETE FROM Persons WHERE Id = {id}");
         }
 
     }

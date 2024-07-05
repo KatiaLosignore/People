@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using People.Models.ViewModels;
 using People.Models.ValueTypes;
+using People.Models.InputModels;
 
 namespace People.Models.Services.Application
 {
@@ -101,6 +102,16 @@ namespace People.Models.Services.Application
             int index = rand.Next(bios.Count);
             return bios[index];
         }
+
+        public PersonDetailViewModel CreatePerson(PersonCreateInputModel input){
+            throw new NotImplementedException();
+        }
+
+         public void DeletePerson(int id){
+            throw new NotImplementedException();
+        }
+
+        
     }
 
     

@@ -1,3 +1,9 @@
+html,
+body {
+    min-height: 100vh;
+}
+
+
 
 body {
     background-color: lightcyan;
@@ -5,6 +11,10 @@ body {
 
 .logo {
     cursor: pointer;
+}
+
+.btn-outline-danger{
+    margin-left: 10px;
 }
 
 
