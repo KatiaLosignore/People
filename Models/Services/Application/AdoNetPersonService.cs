@@ -22,7 +22,7 @@ namespace People.Models.Services.Application
         public List<PersonViewModel> GetPeople()
         {
             //query che verrà eseguita nel database
-            string query = "SELECT Id, Name, Surname, Age FROM Persons";
+            FormattableString query = $"SELECT Id, Name, Surname, Age FROM Persons";
             //un oggetto di tipo DataSet è un insieme di oggetti di tipo DataTable
             DataSet dataSet = db.Query(query); 
 
@@ -45,8 +45,9 @@ namespace People.Models.Services.Application
             // throw new NotImplementedException();
 
             //In un'unica variabile string io inserisco tutte le query che devono essere eseguite
-            string query = "SELECT Id, Name, Surname, Age, Bio FROM Persons WHERE Id =" + id + 
-            "; SELECT Targa, Marca, Modello, Colore FROM Auto WHERE PersonId =" + id;
+            FormattableString query = $@"SELECT Id, Name, Surname, Age, Bio FROM Persons WHERE Id ={id} 
+            ; SELECT Targa, Marca, Modello, Colore FROM Auto WHERE PersonId ={id}";
+
             //in questo dataSet ci saranno due tabelle: la prima con i dati del corso e la seconda con i dati delle lezioni del corso
             DataSet dataSet = db.Query(query);
             var personDataTable = dataSet.Tables[0];//accedo dal dataSet alla prima tabella cioè a quella che è stata restituita dall'esecuzione dell aprima query
