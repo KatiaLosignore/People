@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using People.Models.Entities;
+
 
 namespace People.Models.ViewModels
 {
@@ -30,5 +32,18 @@ namespace People.Models.ViewModels
             };
             return autoViewModel;
         }
+
+        public static AutoViewModel FromEntity(Car car)
+        {
+            return new AutoViewModel
+            {
+                Targa = car.Targa,
+                Marca = car.Marca,
+                Modello = car.Modello,
+                Colore = car.Colore
+            };
+        }
+
     }
+
 }

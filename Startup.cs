@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using People.Models.Services.Application;
 using People.Models.Services.Infrastructure;
+using People.Models.ViewModels;
+using People.Models.Entities;
 
 namespace People
 {
@@ -37,8 +39,10 @@ namespace People
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //sto indicando ad ASP.NET CORE che quando un componente dipende dall'interfaccia ICourseService
             //crea un oggetto della classe CourseService. Rettificato in AdoNetPersonService
-            services.AddTransient<IPersonService, AdoNetPersonService>();
+            services.AddTransient<IPersonService, EfCorePersonService>();
             services.AddTransient<IDatabaseAccessor, SqliteDatabaseAccessor>();
+            //metodo per indicare che l'app usa la classe MyPersonDbContext come DbContext
+            services.AddDbContext<MyPersonDbContext>();
 
         }
 

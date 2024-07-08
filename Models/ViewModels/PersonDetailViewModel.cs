@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Data;
+using People.Models.Entities;
+using People.Models.Services.Infrastructure;
 
 namespace People.Models.ViewModels
 {
@@ -34,6 +36,21 @@ namespace People.Models.ViewModels
             };
             
             return personDetailViewModel;
+        }
+
+        public static new PersonDetailViewModel FromEntity(Person person) {
+
+            return new PersonDetailViewModel {
+                Id = person.Id,
+                Name = person.Name,
+                Surname = person.Surname,
+                Age = person.Age,
+                Bio = person.Bio,
+                Cars = person.Cars
+                                .Select(car => AutoViewModel.FromEntity(car))
+                                .ToList()
+
+            };
         }
 
     }

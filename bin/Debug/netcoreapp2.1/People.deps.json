@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "1db81736da95b0103e27641fe40877763dddbc3d"
+    "signature": "2148e2d3f29fe95beb158e98a992e88e47512284"
   },
   "compilationOptions": {
     "defines": [
@@ -27,6 +27,7 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.Data.Sqlite": "2.1.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "2.1.0",
           "Microsoft.NETCore.App": "2.1.0"
         },
         "runtime": {
@@ -55,6 +56,27 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Data.Sqlite.dll": {}
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite/2.1.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Sqlite.Core": "2.1.0",
+          "SQLitePCLRaw.bundle_green": "1.1.11"
+        }
+      },
+      "Microsoft.EntityFrameworkCore.Sqlite.Core/2.1.0": {
+        "dependencies": {
+          "Microsoft.Data.Sqlite.Core": "2.1.0",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.18136"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Sqlite.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.1.0": {
@@ -3315,6 +3337,20 @@
       "sha512": "sha512-VJ0kOuf3wp9xyarhBla0JJlwdxz28g09rI4NP8ly8I8/ZhrOZZLtlYvjiMZAPNm0+45+dZ+VXUiO7n4IrP52Zw==",
       "path": "microsoft.data.sqlite.core/2.1.0",
       "hashPath": "microsoft.data.sqlite.core.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xb2Cc1rwisQ7cjxCIoe7pd/7BOwBQHivOjfrkJ7dZcI8QKOdkSHBgARGnQSjTYCD4ZVYffGgBkHYB7wCmbgskw==",
+      "path": "microsoft.entityframeworkcore.sqlite/2.1.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.2.1.0.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Sqlite.Core/2.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zxr9nyosum3Dtvrv5VHc7tjkyg+0dO0SyCIFZu7QE9KCTbeWc6TCQR4TEb2p7zwsIuY+C3GNJLO6v0cDItOVEw==",
+      "path": "microsoft.entityframeworkcore.sqlite.core/2.1.0",
+      "hashPath": "microsoft.entityframeworkcore.sqlite.core.2.1.0.nupkg.sha512"
     },
     "Microsoft.NETCore.App/2.1.0": {
       "type": "package",
