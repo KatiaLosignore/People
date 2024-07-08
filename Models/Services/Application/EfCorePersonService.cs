@@ -21,7 +21,7 @@ namespace People.Models.Services.Application
             this.dbContext = dbContext;
         }
         
-        //Deve recuperare tutti le persone presenti nella tabella Persons del db
+        //Deve recuperare tutte le persone presenti nella tabella Persons del db
         //SELECT * FROM Persons
         public List<PersonViewModel> GetPeople()
         {
@@ -37,6 +37,7 @@ namespace People.Models.Services.Application
             return persons;
         }
 
+         //Deve recuperare il dettaglio della singola Persona nel db
         public PersonDetailViewModel GetPerson(int id){
             PersonDetailViewModel viewModel = dbContext.Persons
             .Where(person => person.Id == id)
@@ -101,11 +102,10 @@ namespace People.Models.Services.Application
         } 
 
 
-
-
         // Nuovo metodo per eliminare una persona
         public void DeletePerson(int id){
             
+             // Trovo la persona da eliminare
             var personToDelete = dbContext.Persons.Where(person => person.Id == id).FirstOrDefault();
 
             if (personToDelete != null)
