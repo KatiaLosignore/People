@@ -107,9 +107,14 @@ namespace People.Models.Services.Application
             throw new NotImplementedException();
         }
 
+         public PersonDetailViewModel UpdatePerson(PersonUpdateInputModel input) {
+               throw new NotImplementedException();
+         }
+
          public void DeletePerson(int id){
             throw new NotImplementedException();
         }
+
 
         
     }

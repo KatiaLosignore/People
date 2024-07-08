@@ -1,32 +1,36 @@
-@model PersonCreateInputModel;
+@model PersonUpdateInputModel;
 
 <div class="container mt-3">
 
     <h1 class="text-primary mb-5">@ViewData["Title"]</h1>
-    <form asp-action="Create" method="post">
+
+    <form asp-controller="Persons" asp-action="Update" asp-route-id="@Model.Id" method="post">
         <div class="row">
             <div class="col-md-8 mb-3">
                 <input type="text" asp-for="Name" class="form-control form-control-lg"
-                    placeholder="Inserisci il Nome">
+                    placeholder="Inserisci il nuovo Nome">
             </div>
             <div class="col-md-8 mb-3">
                 <input type="text" asp-for="Surname" class="form-control form-control-lg"
-                    placeholder="Inserisci il Cognome">
+                    placeholder="Inserisci il nuovoCognome">
             </div>
              <div class="col-md-8 mb-3">
                 <input type="number" asp-for="Age" class="form-control form-control-lg"
-                    placeholder="Inserisci l'Età ">
+                    placeholder="Inserisci la nuova Età ">
             </div>
             <div class="col-md-8 mb-5">
                 <input type="text" asp-for="Bio" class="form-control form-control-lg"
-                    placeholder="Inserisci la Biografia ">
+                    placeholder="Inserisci la nuova Biografia ">
             </div>
             <div class="col-md-8">
-                <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-rocket"></i> Crea
-                    nuova Persona</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="fas fa-rocket"></i> Modifica Persona</button>
             </div>
         </div>
     </form>
 
+        <p class="back-button mt-5">
+                <a class="btn btn-primary" href="@Url.Action("Index", "Persons")" role="button">
+                    <b>Torna Indietro</b>
+                </a>
+        </p>
 </div>
-

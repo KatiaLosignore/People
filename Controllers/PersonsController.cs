@@ -10,6 +10,7 @@ using People.Models.ViewModels;
 using People.Models.InputModels;
 
 
+
 namespace People.Controllers
 {
     public class PersonsController : Controller
@@ -55,6 +56,53 @@ namespace People.Controllers
             PersonDetailViewModel person = personService.CreatePerson(input);//metodo che deve eseguire la query INSERT INTO nel db usando il titolo che ho inserito nel form
             return RedirectToAction(nameof(Index));
         }
+
+
+        [HttpGet]
+        [Route("Update/{id:int}")]
+        public IActionResult Update(int id)
+        {
+            var personDetail = personService.GetPerson(id);
+            if (personDetail == null)
+            {
+                return NotFound();
+            }
+
+            var model = new PersonUpdateInputModel
+            {
+                Id = personDetail.Id,
+                Name = personDetail.Name,
+                Surname = personDetail.Surname,
+                Age = personDetail.Age,
+                Bio = personDetail.Bio
+            };
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [Route("Update/{id:int}")]
+        public IActionResult Update(PersonUpdateInputModel input)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(input);
+            }
+
+             var existingPerson = personService.GetPerson(input.Id);
+            if (existingPerson == null)
+            {
+                return NotFound();
+            }
+
+            personService.UpdatePerson(input);
+            
+            return RedirectToAction(nameof(Detail), new { id = input.Id });
+        }
+
+
+
 
         public IActionResult Delete(int id)
         {

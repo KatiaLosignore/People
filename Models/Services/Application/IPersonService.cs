@@ -13,9 +13,15 @@ namespace People.Models.Services.Application
 
         PersonDetailViewModel GetPerson(int id);
 
+        // Nuovo metodo per creare una persona
         PersonDetailViewModel CreatePerson(PersonCreateInputModel input);
 
+        // Nuovo metodo per aggiornare una persona
+        PersonDetailViewModel UpdatePerson(PersonUpdateInputModel input);
+
+        // Nuovo metodo per eliminare una persona
         void DeletePerson(int id);
+
         
     }
 }

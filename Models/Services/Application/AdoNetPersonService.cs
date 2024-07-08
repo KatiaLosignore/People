@@ -78,13 +78,39 @@ namespace People.Models.Services.Application
             int age = input.Age;
             string bio = input.Bio;
         
-            // string author = "Mario Rossi";
             var dataSet = db.Query($@"INSERT INTO Persons (Name, Surname, Age, Bio) VALUES ({name}, {surname}, {age}, {bio});
             SELECT last_insert_rowid();");
             int personId = Convert.ToInt32(dataSet.Tables[0].Rows[0][0]);
+
+            // Recupero i dettagli della persona
             PersonDetailViewModel person = GetPerson(personId);
             return person;
         }
+
+
+
+        public PersonDetailViewModel UpdatePerson(PersonUpdateInputModel input)
+        {
+            string name = input.Name;
+            string surname = input.Surname;
+            int age = input.Age;
+            string bio = input.Bio;
+            int id = input.Id;
+
+            var dataSet = db.Query($@"
+                UPDATE Persons 
+                SET Name = {name}, Surname = {surname}, Age = {age}, Bio = {bio} 
+                WHERE Id = {id};
+                SELECT Id FROM Persons WHERE Id = {id};");
+            
+            int personId = Convert.ToInt32(dataSet.Tables[0].Rows[0][0]);
+            
+            // Recupero i dettagli della persona aggiornata
+            PersonDetailViewModel personUpdate = GetPerson(personId);
+            return personUpdate;
+        }
+
+
 
         public void DeletePerson(int id)
         {

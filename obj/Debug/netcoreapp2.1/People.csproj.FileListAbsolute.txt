@@ -67,3 +67,4 @@ C:\Users\katia\umana\People\obj\Debug\netcoreapp2.1\People.dll
 C:\Users\katia\umana\People\obj\Debug\netcoreapp2.1\People.pdb
 C:\Users\katia\umana\People\obj\Debug\netcoreapp2.1\People.csproj.CopyComplete
 C:\Users\katia\umana\People\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Create.g.cshtml.cs
+C:\Users\katia\umana\People\obj\Debug\netcoreapp2.1\Razor\Views\Persons\Update.g.cshtml.cs
