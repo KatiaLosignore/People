@@ -74,8 +74,34 @@ namespace People.Models.Services.Application
 
         // Nuovo metodo per aggiornare una persona
         public PersonDetailViewModel UpdatePerson(PersonUpdateInputModel input){
-            return null;
-        }
+        
+            // Trovo la persona da aggiornare
+            var personToUpdate = dbContext.Persons.Where(person => person.Id == input.Id).FirstOrDefault();
+
+            if (personToUpdate != null)
+            {
+                // Aggiorno le proprietà della persona
+                personToUpdate.Name = input.Name;
+                personToUpdate.Surname = input.Surname;
+                personToUpdate.Age = input.Age;
+                personToUpdate.Bio = input.Bio;
+
+                // Salvo i cambiamenti
+                dbContext.SaveChanges();
+
+                // Restituisco il modello di dettaglio aggiornato
+                return PersonDetailViewModel.FromEntity(personToUpdate);
+            }
+            else
+            {
+                // Se la persona non esiste lancio un'eccezione
+                throw new Exception("La persona da aggiornare non è stata trovata!");
+            }
+
+        } 
+
+
+
 
         // Nuovo metodo per eliminare una persona
         public void DeletePerson(int id){
@@ -95,5 +121,8 @@ namespace People.Models.Services.Application
                 throw new Exception("La persona da eliminare non è stata trovata!");
             }
         }
+
+        
+
     }
 }
