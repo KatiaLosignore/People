@@ -7,6 +7,7 @@ using People.Models.InputModels;
 using People.Models.Services.Infrastructure;
 using People.Models.Entities;
 
+
 namespace People.Models.Services.Application
 {
     public class EfCorePersonService : IPersonService
@@ -64,8 +65,8 @@ namespace People.Models.Services.Application
             string name = input.Name;
             string surname = input.Surname;
             var person = new Person(name,surname);
-            dbContext.Add(person);
-            dbContext.SaveChanges();
+            dbContext.Add(person); //tramite il metodo Add eseguo una INSERT INTO nella tabella Persons aggiugengo il nuovo oggetto Person
+            dbContext.SaveChanges(); //tramite il metodo SaveChanges() eseguo l' INSERT INTO 
 
             return PersonDetailViewModel.FromEntity(person);
 
@@ -79,6 +80,20 @@ namespace People.Models.Services.Application
         // Nuovo metodo per eliminare una persona
         public void DeletePerson(int id){
             
+            var personToDelete = dbContext.Persons.Where(person => person.Id == id).FirstOrDefault();
+
+            if (personToDelete != null)
+            {
+                // Rimuovo la persona
+                dbContext.Persons.Remove(personToDelete);
+                // Salvo la modifica nel Db
+                dbContext.SaveChanges();
+            }
+            else 
+            {
+                //Se la persona non esiste lancio un'eccezione
+                throw new Exception("La persona da eliminare non è stata trovata!");
+            }
         }
     }
 }

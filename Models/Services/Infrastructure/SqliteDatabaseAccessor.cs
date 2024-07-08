@@ -17,6 +17,7 @@ namespace People.Models.Services.Infrastructure
             var queryArguments = formattableQuery.GetArguments();//recupero gli argomenti della query  -> torna un array di SqliteParameter
             if (queryArguments.Length > 0)
             {
+
                 //per ogni argomento recuperato dalla query
                 for (var i = 0; i < queryArguments.Length; i++)
                 {

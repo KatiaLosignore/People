@@ -81,8 +81,8 @@ namespace People.Models.Services.Application
             var dataSet = db.Query($@"INSERT INTO Persons (Name, Surname, Age, Bio) VALUES ({name}, {surname}, {age}, {bio});
             SELECT last_insert_rowid();");
             int personId = Convert.ToInt32(dataSet.Tables[0].Rows[0][0]);
-
-            // Recupero i dettagli della persona
+            
+            // Recupero i dettagli della persona aggiornata
             PersonDetailViewModel person = GetPerson(personId);
             return person;
         }
